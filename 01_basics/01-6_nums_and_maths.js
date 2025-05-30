@@ -28,7 +28,7 @@ console.log(Math.PI); //? return the value of PI
 console.log(Math.abs(-10)); //? return the absolute a value of a number
 
 console.log(Math.round(4.6)); //? rounds a number to the nearest integer
-crossOriginIsolated.log(Math.ceil(4.2)); //? rounds a number up to the nearest integer
+console.log(Math.ceil(4.2)); //? rounds a number up to the nearest integer
 console.log(Math.floor(4.8));//? rounds a number down to the nearest integer
 
 
