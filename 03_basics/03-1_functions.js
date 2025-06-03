@@ -56,3 +56,41 @@ function loginUserWithDefault(username = "Guest") {
 
 console.log(loginUserWithDefault()); //? Passing no argument (undefined) will use the default value
 //output: "Guest just logged in!"
+
+
+//* Rest parameters
+function numbers(...num1) { //? Using rest parameters to accept multiple arguments
+    return num1; //? num1 is an ARRAY of all arguments passed
+}
+
+console.log(numbers(1, 2, 3, 4, 5)); //? Passing multiple arguments
+//output: [1, 2, 3, 4, 5] (num1 is an array of all arguments passed)
+
+//* Passing an object as an argument
+
+const user = {
+    name: "Arghya",
+    age: 25,
+}
+function passingObject(anyObject) { //? Function that accepts an object as an argument
+    return  `Name: ${anyObject.name}, Age: ${anyObject.age}` //? Accessing properties of the object
+}
+console.log(passingObject(user)); //? Passing the user object as an argument
+
+console.log(passingObject({ //? Passing an object directly as an argument
+    //? This object will be used as the argument for the function
+    name: "john",
+    age: 30
+}))
+
+//* Passing an array as an argument
+
+const myArray = [1, 2, 3, 4, 5]
+
+function getThirdValueFromArray(anyArray) {
+    return anyArray[2] 
+}
+
+console.log(getThirdValueFromArray(myArray)); //? Passing the array as an argument
+console.log(getThirdValueFromArray([400, 200, 69, 100])) //? Passing an array directly as an argument
+
