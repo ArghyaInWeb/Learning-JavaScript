@@ -330,6 +330,31 @@ console.log("+++++++++++++++++++++++++++++++++++++++++++++++");
 // - Methods: increment, decrement, getCount
 // - Optional: Add min, max limits
 // Your code here:
+function makeCounter() {
+  let count = 0
+  return {
+    increment:  function() {
+      count++
+      return count
+    },
+    decrement: function() {
+      count--
+      return count
+    },
+    getCount: function() {
+      return count
+    }
+  }
+}
+const counterClosure = makeCounter()
+console.log(counterClosure.getCount())
+console.log(counterClosure.increment())
+console.log(counterClosure.increment())
+console.log(counterClosure.getCount())
+console.log(counterClosure.decrement())
+console.log(counterClosure.decrement())
+console.log(counterClosure.getCount())
+
 
 console.log("+++++++++++++++++++++++++++++++++++++++++++++++");
 //* Q13: Function Parameters
@@ -412,6 +437,17 @@ console.log("+++++++++++++++++++++++++++++++++++++++++++++++");
 // Use if-else and logical operators
 // Your code here:
 
+let year = 2000
+if (year % 400 === 0) {
+  console.log(`${year} is a leap year`)
+} else if(year % 100  === 0) {
+  console.log(`${year} is not a leap year`)
+} else if (year % 4 === 0) {
+  console.log(`${year} is a leap year`)
+} else {
+  console.log(`${year} is not a leap year`)
+}
+
 console.log("+++++++++++++++++++++++++++++++++++++++++++++++");
 //* Q17: Switch Statement
 // Create a grade calculator that:
@@ -420,6 +456,35 @@ console.log("+++++++++++++++++++++++++++++++++++++++++++++++");
 // - Handles invalid inputs
 // Use switch statement
 // Your code here:
+
+const inputScore = 60
+switch (true) { //? Each case will check if the condition is true
+  case inputScore >= 90 && inputScore < 100:
+    console.log(`Grade: O (Outstanding)`)
+    break;
+  case inputScore >= 80 && inputScore < 90:
+    console.log(`Grade: A+ (Excellent)`)
+    break;
+  case inputScore >= 70 && inputScore < 80:
+    console.log(`Grade: A (Very Good)`)
+    break;
+  case inputScore >= 60 && inputScore < 70:
+    console.log(`Grade: B+ (Good)`)
+    break;
+  case inputScore >= 50 && inputScore < 60:
+    console.log(`Grade: B (Above Average)`)
+    break;
+  case inputScore >= 40 && inputScore <50:
+    console.log(`Grade: P (Pass)`)
+    break;
+  case inputScore < 40 && inputScore >= 0:
+    console.log(`Grade: F (Fail)`)
+    break;
+
+  default:
+    console.log('please input valid score')
+    break;
+}
 
 console.log("+++++++++++++++++++++++++++++++++++++++++++++++");
 //* Q18: Ternary Operators
