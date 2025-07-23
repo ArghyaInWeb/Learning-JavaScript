@@ -36,7 +36,3 @@ for (let [key, value] of Object.entries(User)) { //? Iterate over the properties
         console.log(`${key} : ${value}`);
     }
 }
-
-//! -------------------------------------------------------------------------------------------------------------
-//! This file is a JavaScript learning example focused on property descriptors and object property management.
-//! -------------------------------------------------------------------------------------------------------------
