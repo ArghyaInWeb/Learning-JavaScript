@@ -21,7 +21,6 @@ body {
 
 .weather-card {
     width: 300px;
-    /* height: 400px; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -121,7 +120,6 @@ body {
 
 .temperatures {
     display: flex;
-    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
     gap: 10px;
@@ -137,3 +135,43 @@ body {
     border: 1px solid rgba(163, 85, 242, 0.481);
     
 }   
+
+.footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    display: inline-block;
+}
+
+.search-history {
+    width: 100%;
+    font-size: 0.7rem;
+    list-style: none;
+    color: #9509f2b7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.clear-search-history {
+    position: absolute;
+    right: 8%;
+    padding: 5px 5px 3px 5px;
+    border: 1px solid red;
+    border-radius: 4px;
+    background-color: rgb(236, 156, 169);
+    transform: translate(0%, -175%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease-in-out 0.2s;
+}
+
+.footer:hover .clear-search-history {
+    opacity: 1;
+    visibility: visible;
+}

@@ -59,6 +59,47 @@ function renderWeatherResult(cityName, temperature, weather, wIcon) {
     weatherCondition.innerHTML = `${weather}`
 }
 
+function updateSearchHistory(cityName) {
+    let history = JSON.parse(localStorage.getItem('searchHistory')) || []
+
+    history = history.filter(city => city.toLowerCase() !== cityName.toLowerCase())
+    history.unshift(cityName)
+
+    history = history.slice(0, 4)
+
+    renderSearchHistory(history)
+    localStorage.setItem('searchHistory', JSON.stringify(history))
+}
+
+function renderSearchHistory(history) {
+    const searchResult = document.querySelector('.search-history')
+    searchResult.innerHTML = ''
+    history = history ?? []
+    // if(!history) {
+    //     history =[]
+    // }
+    
+    history.forEach(city => {
+        const newLi = document.createElement('li')
+        newLi.innerHTML = city
+        searchResult.appendChild(newLi)
+    });
+}
+
+document.querySelector('.clear-search-history').addEventListener('click', () => {
+    localStorage.removeItem('searchHistory')
+    renderSearchHistory(history)
+})
+
+document.querySelector('.search-history').addEventListener('click', (e) => { // search-history is an ul
+    if(e.target.matches('li')) {
+        const city = e.target.textContent
+        inputCityName.value = city;  // Put city into the input box
+        inputBtn.click(); 
+        console.log(city)
+    }
+})
+
 inputCityName.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         inputBtn.click()
@@ -86,6 +127,7 @@ inputBtn.addEventListener('click', async () => {
     const weather = newData.weather[0].main
     const iconID = newData.weather[0].icon
 
+    updateSearchHistory(newData.name)
     renderWeatherResult(CITY.value, temperatures, weather, iconID)
     CITY.value = ''
 
