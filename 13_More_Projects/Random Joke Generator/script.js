@@ -21,3 +21,20 @@ const generateJoke = async () => {
     }
 }
 tellJoke.addEventListener('click', generateJoke)
+
+const copyBtn = document.querySelector('.copy-joke');
+
+copyBtn.addEventListener('click', async () => {
+    const fullJoke = `${setup.textContent} - ${punchLine.textContent}`;
+    if (!setup.textContent.trim()) {
+        alert("No joke to copy! Click 'Tell Joke' first.");
+        return;
+    }
+    try {
+        await navigator.clipboard.writeText(fullJoke);
+        alert('Joke copied to clipboard!');
+    } catch (err) {
+        console.error('Copy failed:', err);
+        alert('Failed to copy joke.');
+    }
+});
