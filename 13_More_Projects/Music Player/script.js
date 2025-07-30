@@ -113,6 +113,7 @@ function songTimeUpdate() {
   //? This function updates the song progress and current time
   song.addEventListener("timeupdate", () => {
     songProgress.value = Math.floor(song.currentTime);
+
     const { songStartTime } = formatSongTimes(song);
     songCurrentTime.textContent = formatTime(
       songStartTime.minutes,
@@ -127,7 +128,14 @@ function updateAtEnd() {
   songProgress.value = 0
 }
 
+function seek(e) {
+  //? This function seeks the song to the selected time
+  const newTime = e.target.value;
+  song.currentTime = newTime;
+}
+
 //! ------ AllEVENTS -------
 song.addEventListener("loadedmetadata", loadingData);
 allControls.addEventListener("click", songController);
 song.addEventListener('ended', updateAtEnd)
+songProgress.addEventListener('input', seek)
